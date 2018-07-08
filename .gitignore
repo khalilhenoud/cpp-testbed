@@ -26,3 +26,11 @@ OpenglSpecification.txt
 # Visual studio file ignore
 *.suo
 *.old
+/cpp-testbed.vcxproj.user
+/cpp-testbed.vcxproj.filters
+/cpp-testbed.vcxproj
+/cpp-testbed.sln
+/Release
+/Debug
+/.vs/cpp-testbed/v15
+/.vs
