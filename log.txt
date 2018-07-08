@@ -40,6 +40,8 @@ Tasks:
     - Render a grid.                                                                    // done
     - Set the window title as the frame rate.                                           // done
     - Rethink the pipeline structure and how it should work with the renderer.          // done
+	- Clone repositry, under pandishi.													// current
+	- Start refactoring.																// current
 - Additions and further refactoring:
     - Loaders/Serializers:
         - Create a binary (no longer optional) loader/serializer.
@@ -99,63 +101,64 @@ this is not to animate it but rather to displace it without having to change the
 - _MSC_VER check for this to determine if you are compiling under VS or not.
 
 // TO BE REMOVED: Setting up a light source just for testing (to not make the meshes look flat).
-	/*
-	float ambientlight[] = {0.1f, 0.1f, 0.1f, 1.f};
-	float diffuselight[] = {0.2f, 0.2f, 0.2f, 1.f};
-	float specular[] = {0.1f, 0.1f, 0.1f, 1.f};
+/*
+float ambientlight[] = {0.1f, 0.1f, 0.1f, 1.f};
+float diffuselight[] = {0.2f, 0.2f, 0.2f, 1.f};
+float specular[] = {0.1f, 0.1f, 0.1f, 1.f};
 
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientlight);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuselight);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
-	glEnable(GL_LIGHT0);
+glLightfv(GL_LIGHT0, GL_AMBIENT, ambientlight);
+glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuselight);
+glLightfv(GL_LIGHT0, GL_SPECULAR, specular);
+glEnable(GL_LIGHT0);
 
-	// Setting the light position.
-	float lightpos[] = {-50.f, 50.f, 100.f, 1.f};
-	glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
+// Setting the light position.
+float lightpos[] = {-50.f, 50.f, 100.f, 1.f};
+glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
 
-	// TO BE REMOVED: Setting up a spot light source.
-	float spotlightpos[] = {0.f, 0.f, 150.f, 1.f};
-	float spotdir[] = {0.f, 0.f, -1.f};
+// TO BE REMOVED: Setting up a spot light source.
+float spotlightpos[] = {0.f, 0.f, 150.f, 1.f};
+float spotdir[] = {0.f, 0.f, -1.f};
 
-	glLightfv(GL_LIGHT1, GL_AMBIENT, ambientlight);
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuselight);
-	glLightfv(GL_LIGHT1, GL_SPECULAR, specular);
-	glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 30.f);
+glLightfv(GL_LIGHT1, GL_AMBIENT, ambientlight);
+glLightfv(GL_LIGHT1, GL_DIFFUSE, diffuselight);
+glLightfv(GL_LIGHT1, GL_SPECULAR, specular);
+glLightf(GL_LIGHT1, GL_SPOT_CUTOFF, 30.f);
 
-	// Set the spot light position and direction.
-	glLightfv(GL_LIGHT1, GL_POSITION, spotlightpos);
-	glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spotdir);
-	glEnable(GL_LIGHT1);
-    */
+// Set the spot light position and direction.
+glLightfv(GL_LIGHT1, GL_POSITION, spotlightpos);
+glLightfv(GL_LIGHT1, GL_SPOT_DIRECTION, spotdir);
+glEnable(GL_LIGHT1);
+*/
 
-    /*
-            if ((utils::Mouse::IsPressedLButton()) || (utils::Mouse::IsPressedRButton())) {
-                if (firsttime) {
-                    utils::Mouse::GetPosition(x, y);
-                    firsttime = false;
-                } else {
-                    int sx, sy;
-                    utils::Mouse::GetPosition(sx, sy);
-                    dx = sx - x;
-                    dy = sy - y;
-                    x = sx;
-                    y = sy;
+/*
+if ((utils::Mouse::IsPressedLButton()) || (utils::Mouse::IsPressedRButton())) {
+    if (firsttime) {
+        utils::Mouse::GetPosition(x, y);
+		firsttime = false;
+    } else {
+        int sx, sy;
+        utils::Mouse::GetPosition(sx, sy);
+        dx = sx - x;
+        dy = sy - y;
+        x = sx;
+        y = sy;
 
-                    float sdx = (float)dx/10.f;
-                    float sdy = (float)dy/10.f;
+        float sdx = (float)dx/10.f;
+        float sdy = (float)dy/10.f;
 
-                    if (utils::Mouse::IsPressedRButton())
-                        pipeline->PostTranslate(sdx, -sdy, 0);
+        if (utils::Mouse::IsPressedRButton())
+            pipeline->PostTranslate(sdx, -sdy, 0);
 
-                    if (utils::Mouse::IsPressedLButton())
-                        pipeline->PreRotateY(sdx * 2 / 180.0 * PI);
-                }
-            } else if (!utils::Mouse::IsPressedLButton() && !utils::Mouse::IsPressedRButton()) {
-                firsttime = true;
+        if (utils::Mouse::IsPressedLButton())
+            pipeline->PreRotateY(sdx * 2 / 180.0 * PI);
+    }
+} else if (!utils::Mouse::IsPressedLButton() && !utils::Mouse::IsPressedRButton()) {
+    firsttime = true;
 
-                if (utils::Keyboard::IsPressed(VK_UP))
-                    pipeline->PostTranslate(0, 0, 5);
+    if (utils::Keyboard::IsPressed(VK_UP))
+        pipeline->PostTranslate(0, 0, 5);
 
-                if (utils::Keyboard::IsPressed(VK_DOWN))
-                    pipeline->PostTranslate(0, 0, -5);
-            }*/
+    if (utils::Keyboard::IsPressed(VK_DOWN))
+        pipeline->PostTranslate(0, 0, -5);
+}
+*/
