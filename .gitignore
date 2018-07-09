@@ -1,36 +1,5 @@
-# OS generated files
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
 
-# Ignore Object files
-.objs
-
-# Ignore old code directorty
-_old/
-
-# Ignore executable and code block specific files
-*.cbp
-*.cscope_file_list
-*.depend
-*.exe
-*.layout
-OpenglSpecification.txt
-*.ASE
-!test01.ASE
-
-# Visual studio file ignore
-*.suo
-*.old
-/cpp-testbed.vcxproj.user
-/cpp-testbed.vcxproj.filters
-/cpp-testbed.vcxproj
-/cpp-testbed.sln
-/Release
-/Debug
-/.vs/cpp-testbed/v15
-/.vs
+/.vs/pandishi/v15/Browse.VC.opendb
