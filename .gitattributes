@@ -3,4 +3,4 @@ source/GLEXT.H linguist-vendored=true
 source/WGLEXT.H linguist-vendored=true
 source/libpng/* linguist-vendored=true
 source/zlib/* linguist-vendored=true
-source/libjpeg/8 linguist-vendored=true
+source/libjpeg/* linguist-vendored=true
