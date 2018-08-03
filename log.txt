@@ -1,47 +1,81 @@
-Last updated: Tuesday 1-3-2017, Wednesday 1-4-2017, Thursday 1-5-2017, Sunday 1-8-2017,
-Monday 1-9-2017, Tuesday 1-10-2017, Wednesday 1-11-2017, Thursday 1-12-2017.
+: 1-3-2017, 1-4-2017, 1-5-2017, 1-8-2017, 1-9-2017, 1-10-2017, 1-11-2017, 1-12-2017.
 
-Dependencies: Winmm.lib; Shlwapi.lib; opengl32.lib; glu32.lib; gdiplus.lib;
+@ Dependencies: Winmm.lib; Shlwapi.lib; opengl32.lib; glu32.lib; gdiplus.lib;
 
 Tasks:
 - Initial refactoring (MAJOR):
-    - gvector.h                                                                         // done
-    - geom.h                                                                            // done
-    - bbox.h                                                                            // done
-    - point.h                                                                           // done
-    - sphere.h                                                                          // done
-    - plane.h                                                                           // done
-    - line.h                                                                            // done
-    - segment.h                                                                         // done
-    - matrix.h                                                                          // done
-    - quaternion.h                                                                      // done
-    - input.h, input.cpp                                                                // done
-    - frameratecontroller.h, frameratecontroller.cpp                                    // done
+    - gvector.h																						// done
+    - geom.h																						// done
+    - bbox.h																						// done
+    - point.h																						// done
+    - sphere.h																						// done
+    - plane.h																						// done
+    - line.h																						// done
+    - segment.h																						// done
+    - matrix.h																						// done
+    - quaternion.h																					// done
+    - input.h, input.cpp																			// done
+    - frameratecontroller.h, frameratecontroller.cpp												// done
     - 3DSLoader.h, 3DSLoader.cpp refactor:
-        - mesh.h (containing mesh, textures, materials).                                // done
-        - model.h (containing model).                                                   // done
-        - Add an interface class for loaders and serializers, create an ASE and         // done
+        - mesh.h (containing mesh, textures, materials).											// done
+        - model.h (containing model).																// done
+        - Add an interface class for loaders and serializers, create an ASE and						// done
         (optional)binary loader/serializer classes.
-        - Remove all fancy graphics features, VBOs and OQ, will be re-added later.      // done
-        - Remove font support from the renderer.                                        // done
-        - Remove BSP class usage, as it serves no purpose currently.                    // done
+        - Remove all fancy graphics features, VBOs and OQ, will be re-added later.					// done
+        - Remove font support from the renderer.													// done
+        - Remove BSP class usage, as it serves no purpose currently.								// done
         @ Note that we are no longer loading the textures when loading the model.
         @ Hierarchies and multi-sets of UVs and materials are not supported in ASE.
         @ Incorrect calculation of normals, tangents, bi-normals for ASE.
-    - WinMain.cpp                                                                       // done
-    - application.h                                                                     // done
-    - renderer.h, renderer.cpp                                                          // done
-    - my_application.cpp                                                                // done
-    - Compile and fix all errors in the project.                                        // done
-    - Update matrix class to support translation and rotation.                          // done
-    - Copy the pipeline class from c-rasterizer, and the camera class.                  // done
-    - Update the MyApplication class to make sure the behavior is meaningful, copy from // done
+    - WinMain.cpp																					// done
+    - application.h																					// done
+    - renderer.h, renderer.cpp																		// done
+    - my_application.cpp																			// done
+    - Compile and fix all errors in the project.													// done
+    - Update matrix class to support translation and rotation.										// done
+    - Copy the pipeline class from c-rasterizer, and the camera class.								// done
+    - Update the MyApplication class to make sure the behavior is meaningful, copy from				// done
     c-rasterizer.
-    - Render a grid.                                                                    // done
-    - Set the window title as the frame rate.                                           // done
-    - Rethink the pipeline structure and how it should work with the renderer.          // done
-	- Clone repositry, under pandishi.													// current
-	- Start refactoring.																// current
+    - Render a grid.																				// done
+    - Set the window title as the frame rate.														// done
+    - Rethink the pipeline structure and how it should work with the renderer.						// done
+- Remove unneeded source and header files from the project folder and try and run.					// done
+- Remove usage of EPSILON macros, as they are redundant; use the std Epsilon.						// done					
+    @ PI is needed and cannot be removed.
+	@ w components from vertex/vector class cannot be removed (for now), used in matrices.
+- After refactoring is done and the program successfully runs, upload to Github.					// done
+- Remove dependencies on GDIPlus, you can use (very famous) C libraries.							
+	- Add zlib library.																				// done
+	- Add libpng library.																			// done
+	- Add libjpeg library.																			// done
+	- Change the texture loading code to use libjpeg (supports bmp also) and libpng.				// current
+		@ Check example.c in both library folders for examples.
+- Check if dependency on 'Winmm.lib (timegettime), Shlwapi.lib (directory function)' can be removed
+or encapsulated.
+- Limit the project to C++11.																		
+- Refactor:
+	- Initialize/Cleanup functions go against RAII concept of C++ (remove).
+	- directory structure need to be change.
+	- 'application.h', remove any and all singletons.
+- Research C++ best coding practices, you can check some links in my task document.
+- Rewrite your own standard classes (arrays, lists, hash tables, etc...).
+- Write your own memory manager.
+- Logging functionality to make debugging easier, and visual console.
+
+Remarks:
+- Every parameter of type class not modified by the method should be const.
+- A member function that does not modify the class should be const.
+- Base types should not know about complex type (i.e. Point3D should not know about class Sphere,
+Plane, Line3D should not know about Plane, etc...).
+- Only on functions and classes do we put the open brace on a newline.
+- Use a constant reference instead of a constant copy (saves the temporary variable).
+- Philosophy: we only add classes and re-factor when the need arises, we do not try and predict the
+future.
+- A CAD program has no knowledge that an asset (for example a mesh or a material) is unique across
+the project, and currently there no way to distinguish the asset across the project (to avoid
+duplicates), once an asset manager is implemented that problem can be addressed.
+- Stick to 'Initialize' and 'Cleanup' as function names for this kind of default functionality.
+
 - Additions and further refactoring:
     - Loaders/Serializers:
         - Create a binary (no longer optional) loader/serializer.
@@ -61,33 +95,6 @@ Tasks:
     - Advanced renderer (TO BE DETAILED FURTHER).
     - Editor (TO BE DETAILED FURTHER).
     - Physics engine (TO BE DETAILED FURTHER).
-- Remove unneeded source and header files from the project folder and try and run.      // done
-- Remove usage of PI and EPSILON macros, as they are redundant; they exist in the       // done
-standard library.
-    @ After checking PI is needed but EPSILON has been removed.
-- Check if you can remove the 'w' component from the vertex or vector class.            // NAD
-    @ After checking, it is needed for the interaction with matrices.
-- Remove dependencies on GDIPlus, you can use (very famous) C libraries.                // current
-- After refactoring is done and the program successfully runs, upload to Github.        // next
-- Re-check what can remain public and what needs to be moved to private namespace.
-- Research C++ best coding practices, you can check some links in my task document.
-- Rewrite your own standard classes (arrays, lists, hash tables, etc...).
-- Write your own memory manager.
-- Logging functionality to make debugging easier.
-
-Remarks:
-- Every parameter of type class not modified by the method should be const.
-- A member function that does not modify the class should be const.
-- Base types should not know about complex type (i.e. Point3D should not know about class Sphere,
-Plane, Line3D should not know about Plane, etc...).
-- Only on functions and classes do we put the open brace on a newline.
-- Use a constant reference instead of a constant copy (saves the temporary variable).
-- Philosophy: we only add classes and re-factor when the need arises, we do not try and predict the
-future.
-- A CAD program has no knowledge that an asset (for example a mesh or a material) is unique across
-the project, and currently there no way to distinguish the asset across the project (to avoid
-duplicates), once an asset manager is implemented that problem can be addressed.
-- Stick to 'Initialize' and 'Cleanup' as function names for this kind of default functionality.
 
 Scratch:
 - A model has a transformation matrix, a translation vector and a scale vector.
