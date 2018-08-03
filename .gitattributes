@@ -1,3 +1,6 @@
 *.h linguist-language=c++
-src/GLEXT.H linguist-vendored=true
-src/WGLEXT.H linguist-vendored=true
+source/GLEXT.H linguist-vendored=true
+source/WGLEXT.H linguist-vendored=true
+source/libpng/* linguist-vendored=true
+source/zlib/* linguist-vendored=true
+source/libjpeg/8 linguist-vendored=true
