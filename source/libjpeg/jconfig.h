@@ -4,6 +4,7 @@
 #define HAVE_PROTOTYPES
 #define HAVE_UNSIGNED_CHAR
 #define HAVE_UNSIGNED_SHORT
+#define USE_WINDOWS_MESSAGEBOX
 /* #define void char */
 /* #define const */
 #undef CHAR_IS_UNSIGNED

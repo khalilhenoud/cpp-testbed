@@ -1,8 +1,6 @@
 #include <windows.h>
-#include <gdiplus.h>
 #include "application.h"
 
-using namespace Gdiplus;
 
 HINSTANCE	hInst;
 HWND		hWnd;
@@ -39,11 +37,6 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, int nCmdShow)
 {
 	hInst = hInstance;
-	GdiplusStartupInput gdiplusStartupInput;
-	ULONG_PTR           gdiplusToken;
-
-	// Initialize GDI plus.
-	GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
 
 	WNDCLASSEX wcex = {0};
 	wcex.cbSize = sizeof(WNDCLASSEX);
@@ -87,9 +80,6 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdL
 
 End:
 	core::Application::GetCurrentApplication()->Cleanup();
-
-	// Shutdown GDI plus.
-	GdiplusShutdown(gdiplusToken);
 
 	return (int) msg.wParam;
 }
